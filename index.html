@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#04050a">
+<meta name="description" content="WebTech — futuristic websites, web apps and digital experiences.">
+<title>WebTech — Digital Technology, Reimagined.</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;500;600;700;800&display=swap');
+:root{--bg:#04050a;--orange:#ff6a00;--orange2:#ffb15c;--white:#fff;--muted:#929caf;--line:rgba(255,255,255,.11)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:#f5f7ff;font-family:"Syne",sans-serif;overflow-x:hidden}button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+#bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 75% 28%,rgba(255,106,0,.22),transparent 30%),radial-gradient(circle at 18% 72%,rgba(255,106,0,.14),transparent 28%),#04050a;overflow:hidden}
+canvas{width:100%;height:100%;display:block}.grid{position:absolute;left:-20%;right:-20%;bottom:-18%;height:60%;opacity:.3;background-image:linear-gradient(rgba(255,106,0,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,106,0,.08) 1px,transparent 1px);background-size:55px 55px;transform:perspective(600px) rotateX(62deg);animation:grid 18s linear infinite}.orb{position:absolute;border-radius:50%;filter:blur(2px);mix-blend-mode:screen}.o1{width:230px;height:230px;right:8%;top:20%;background:radial-gradient(circle at 30% 25%,#fff,#00dfff 13%,#5b3df5 48%,transparent 70%);box-shadow:0 0 100px rgba(255,106,0,.25);animation:float1 9s ease-in-out infinite}.o2{width:190px;height:190px;left:8%;top:58%;background:radial-gradient(circle at 30% 30%,#dff,#00b8dd 20%,#542dce 58%,transparent 70%);box-shadow:0 0 90px rgba(255,106,0,.25);animation:float2 11s ease-in-out infinite}.stars{position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:73px 73px;opacity:.14;animation:stars 25s linear infinite}
+@keyframes grid{to{transform:perspective(600px) rotateX(62deg) translateY(100px)}}@keyframes float1{50%{transform:translate(-25px,30px) rotate(12deg)}}@keyframes float2{50%{transform:translate(35px,-25px) rotate(-15deg)}}@keyframes stars{to{transform:translateY(73px)}}
+.nav{position:fixed;top:0;left:0;right:0;height:86px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;z-index:10;background:linear-gradient(180deg,rgba(4,5,10,.9),transparent);backdrop-filter:blur(9px)}
+.brand{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:700;letter-spacing:-.05em}.brand span:last-child span{color:var(--orange)}.logo{width:40px;height:40px;filter:drop-shadow(0 0 12px rgba(255,106,0,.3))}.navlinks{display:flex;gap:30px}.navlinks button{text-transform:uppercase;font:500 10px "DM Mono";letter-spacing:.15em;color:#aeb5c9}.navlinks button:hover{color:#fff}.cta{display:flex;align-items:center;gap:9px;border:1px solid var(--line);padding:12px 16px;font:500 10px "DM Mono";letter-spacing:.08em;background:rgba(255,255,255,.035)}.cta:hover{border-color:rgba(255,106,0,.5)}.menu{display:none}
+main{position:relative;z-index:1}.section{width:min(1180px,90vw);margin:auto}.hero{min-height:100vh;display:flex;align-items:center;padding:140px 0 100px;position:relative}.hero>div{max-width:820px}.eyebrow{font:500 10px "DM Mono";letter-spacing:.18em;color:#94a0b9;margin-bottom:24px}.pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 14px var(--orange);margin-right:9px}.hero h1{font-size:clamp(58px,9.4vw,145px);line-height:.83;letter-spacing:-.075em;font-weight:500;margin:0 0 35px}.outline{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.72)}.hero p{max-width:600px;color:#aab2c5;font-size:17px;line-height:1.65}.actions{display:flex;gap:16px;align-items:center;margin-top:35px}.primary{display:flex;align-items:center;gap:14px;padding:16px 21px;background:linear-gradient(100deg,#fff,#ffe0c2);color:#05060a;font:600 10px "DM Mono";letter-spacing:.08em;position:relative;overflow:hidden;transition:.25s transform}.primary:hover{transform:translateY(-3px);box-shadow:0 0 35px rgba(255,106,0,.2)}.primary:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,106,0,.4),transparent);transform:translateX(-120%);animation:sweep 4s infinite}.ghost{display:flex;gap:9px;align-items:center;padding:16px;font:500 10px "DM Mono";letter-spacing:.08em;color:#cbd2e2}.chip{position:absolute;padding:10px 13px;border:1px solid rgba(255,255,255,.11);background:rgba(4,5,10,.45);backdrop-filter:blur(10px);font:500 9px "DM Mono";color:#aab2c5}.chip.a{right:2%;top:35%}.chip.b{right:9%;bottom:23%}.scroll{position:absolute;bottom:48px;left:0;color:#68738a;font:500 9px "DM Mono";letter-spacing:.15em;display:flex;gap:14px;align-items:center}.scroll i{display:block;width:70px;height:1px;background:linear-gradient(90deg,var(--orange),transparent)}
+h2{font-size:clamp(50px,7vw,100px);line-height:.9;letter-spacing:-.065em;font-weight:500;margin:0}.sectionhead{padding:150px 0 60px}.cyan{color:var(--orange)}
+.gridcards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{min-height:310px;padding:25px;position:relative;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(12px);transition:.4s transform,.4s border-color}.card:hover{transform:translateY(-8px) rotateX(2deg) rotateY(-2deg);border-color:rgba(255,106,0,.35)}.num{font:500 9px "DM Mono";color:#68738a}.icon{color:var(--orange);font-size:28px;margin-top:60px}.card h3{font-size:21px;margin:17px 0 9px}.card p{color:#8f99ae;font-size:13px;line-height:1.6;max-width:280px}.arrow{position:absolute;right:23px;bottom:22px;color:#68738a}
+.network{min-height:850px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:50px}.network p{max-width:470px;color:var(--muted);line-height:1.7;margin-top:30px}.visual{height:520px;position:relative;display:grid;place-items:center}.core{width:155px;height:155px;border-radius:50%;display:grid;place-items:center;text-align:center;background:radial-gradient(circle,rgba(255,106,0,.23),rgba(255,106,0,.08) 50%,transparent 70%);border:1px solid rgba(255,106,0,.35);box-shadow:0 0 80px rgba(255,106,0,.13);font:500 9px "DM Mono";letter-spacing:.15em}.node{position:absolute;padding:10px 14px;border:1px solid rgba(255,255,255,.12);background:rgba(4,5,10,.55);backdrop-filter:blur(9px);font:500 9px "DM Mono";letter-spacing:.14em;color:#aeb8ca;animation:node 5s ease-in-out infinite}.n1{top:8%;left:10%}.n2{top:8%;right:10%;animation-delay:.8s}.n3{top:47%;left:0;animation-delay:1.5s}.n4{top:47%;right:0;animation-delay:2.2s}.n5{bottom:8%;left:20%;animation-delay:2.8s}.n6{bottom:8%;right:20%;animation-delay:3.5s}.lines{position:absolute;inset:0;width:100%;height:100%;opacity:.45}.lines line{stroke:#0ca4bd;stroke-width:1;stroke-dasharray:5 10;animation:dash 5s linear infinite}@keyframes node{50%{transform:translateY(-10px)}}@keyframes dash{to{stroke-dashoffset:-70}}
+.projects{display:flex;flex-direction:column;gap:20px}.project{display:grid;grid-template-columns:1.65fr .75fr;min-height:420px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035);overflow:hidden;transition:.35s transform}.project:hover{transform:scale(.987)}.art{position:relative;overflow:hidden;background:radial-gradient(circle at 60% 40%,rgba(255,106,0,.24),transparent 26%),linear-gradient(135deg,#07131c,#090711 60%,#1a0840)}.art.two{background:radial-gradient(circle at 35% 40%,rgba(255,106,0,.38),transparent 30%),linear-gradient(135deg,#0a0618,#020409)}.art.three{background:radial-gradient(circle at 55% 45%,rgba(231,76,255,.24),transparent 25%),linear-gradient(135deg,#090812,#071018)}.pgrid{position:absolute;inset:-30%;background-image:linear-gradient(rgba(255,106,0,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(255,106,0,.09) 1px,transparent 1px);background-size:42px 42px;transform:perspective(600px) rotateX(62deg) translateY(80px);animation:grid 12s linear infinite}.porb{position:absolute;width:230px;height:230px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#d9fdff,#00a5c4 18%,#4630cc 58%,transparent 69%);box-shadow:0 0 100px rgba(255,106,0,.3)}.info{padding:35px;display:flex;flex-direction:column;justify-content:end;border-left:1px solid rgba(255,255,255,.1)}.info small{font:500 9px "DM Mono";color:#778298;letter-spacing:.15em}.info h3{font-size:28px;line-height:1;margin:12px 0}.info p{font-size:12px;color:#7e899e}.process{padding-bottom:120px}.rows{border-top:1px solid var(--line)}.row{display:grid;grid-template-columns:80px 1fr 1.1fr 25px;gap:25px;align-items:center;padding:27px 0;border-bottom:1px solid var(--line)}.row b{font:500 11px "DM Mono";color:var(--orange)}.row h3{font-size:26px;margin:0}.row p{margin:0;color:#7f8a9f;font-size:13px;line-height:1.5}.about{padding:150px 0}.aboutbox{padding:55px;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(13px)}.aboutbox p{color:var(--muted);line-height:1.8;align-self:end}.stats{grid-column:1/-1;border-top:1px solid var(--line);padding-top:28px;display:flex;gap:70px}.stats strong{font-size:30px;display:block}.stats span{font:500 9px "DM Mono";letter-spacing:.13em;color:#778298}.contact{min-height:850px;display:grid;place-items:center;text-align:center}.contact h2{font-size:clamp(62px,10vw,150px);line-height:.8;margin-bottom:45px}.contact p{max-width:460px;margin:0 auto 30px;color:var(--muted);line-height:1.6}.contact .primary{margin:auto}.details{margin-top:75px;display:flex;justify-content:center;gap:35px;color:#667187;font:500 9px "DM Mono";letter-spacing:.14em}footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:28px 5vw;display:flex;justify-content:space-between;align-items:center;color:#667187;font:500 8px "DM Mono";letter-spacing:.1em}footer .brand{font-size:16px}.top{font-size:18px}
+@keyframes sweep{55%,100%{transform:translateX(120%)}}
+
+.hero{min-height:100vh;isolation:isolate;overflow:hidden}
+.hero-copy{position:relative;z-index:3;max-width:800px}
+.hero-kicker{font:500 10px "DM Mono";letter-spacing:.22em;color:#777;margin:0 0 12px}
+.hero-orange{color:var(--orange);text-shadow:0 0 45px rgba(255,106,0,.18)}
+.hero h1{font-weight:800;letter-spacing:-.09em}
+.hero p{font-size:18px;max-width:630px}
+.hero-metrics{display:flex;gap:32px;margin-top:40px}
+.hero-metrics span{padding-right:30px;border-right:1px solid var(--line)}
+.hero-metrics b{display:block;font-size:23px;color:#fff}.hero-metrics small{font:500 8px "DM Mono";letter-spacing:.15em;color:#727b8d}
+.hero-orbit{position:absolute;right:-5%;top:50%;width:min(600px,56vw);height:min(600px,56vw);transform:translateY(-50%);z-index:1;perspective:900px}
+.hero-core{position:absolute;inset:34%;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 35% 25%,#fff,#ffb15c 12%,#ff6a00 38%,#18100a 64%,transparent 70%);box-shadow:0 0 60px rgba(255,106,0,.38),inset 0 0 35px rgba(255,255,255,.22);animation:corePulse 4s ease-in-out infinite}
+.core-face{width:76px;height:76px;border-radius:22px;display:grid;place-items:center;background:#050505;border:1px solid rgba(255,255,255,.3);font:800 28px "Syne";color:#fff;box-shadow:0 0 30px rgba(255,106,0,.3)}
+.orbit{position:absolute;inset:10%;border:1px solid rgba(255,106,0,.42);border-radius:50%;box-shadow:0 0 35px rgba(255,106,0,.08);transform:rotateX(64deg) rotateZ(18deg);animation:orbitSpin 11s linear infinite}
+.o-b{inset:20%;transform:rotateX(64deg) rotateZ(-45deg);animation-duration:8s;border-color:rgba(255,255,255,.25)}
+.o-c{inset:3%;transform:rotateY(65deg) rotateZ(25deg);animation-duration:15s;border-color:rgba(255,177,92,.25)}
+.float-tag{position:absolute;padding:9px 12px;border:1px solid rgba(255,255,255,.14);background:rgba(5,5,5,.72);backdrop-filter:blur(10px);font:500 8px "DM Mono";letter-spacing:.15em;color:#ddd;box-shadow:0 0 20px rgba(255,106,0,.08);animation:tagFloat 4s ease-in-out infinite}
+.t1{top:14%;right:8%}.t2{left:5%;top:45%;animation-delay:1s}.t3{right:12%;bottom:14%;animation-delay:2s}
+@keyframes orbitSpin{to{transform:rotateX(64deg) rotateZ(378deg)}}@keyframes corePulse{50%{transform:scale(1.06);box-shadow:0 0 100px rgba(255,106,0,.5)}}@keyframes tagFloat{50%{transform:translateY(-12px)}}
+.card,.aboutbox{background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,106,0,.025))}
+.art{background:radial-gradient(circle at 60% 40%,rgba(255,106,0,.34),transparent 27%),linear-gradient(135deg,#15100c,#090909 60%,#211006)}
+.art.two{background:radial-gradient(circle at 35% 40%,rgba(255,106,0,.38),transparent 30%),linear-gradient(135deg,#170d05,#030303)}
+.art.three{background:radial-gradient(circle at 55% 45%,rgba(255,177,92,.25),transparent 25%),linear-gradient(135deg,#0e0e0e,#160b04)}
+.porb{background:radial-gradient(circle at 35% 30%,#fff,#ffb15c 18%,#ff6a00 52%,transparent 69%);box-shadow:0 0 100px rgba(255,106,0,.38)}
+.primary{box-shadow:0 0 0 rgba(255,106,0,0)}
+
+@media(max-width:850px){.nav{height:72px}.navlinks{display:none;position:absolute;top:72px;left:0;right:0;background:rgba(4,5,10,.96);padding:25px 6vw;flex-direction:column;border-bottom:1px solid var(--line)}.navlinks.open{display:flex}.cta{display:none}.menu{display:block;font-size:22px}.hero{padding-top:120px}.hero h1{font-size:clamp(55px,15vw,100px)}.hero-orbit{opacity:.55;width:500px;height:500px;right:-38%;top:58%}.hero-metrics{gap:16px}.hero-metrics span{padding-right:14px}.hero p{font-size:15px}.chip{display:none}.gridcards{grid-template-columns:1fr}.network{grid-template-columns:1fr;min-height:1050px}.visual{height:450px}.n1{left:2%}.n2{right:2%}.n3{left:-4%}.n4{right:-4%}.project{grid-template-columns:1fr}.art{min-height:330px}.info{border-left:0;border-top:1px solid var(--line);min-height:210px}.row{grid-template-columns:55px 1fr 20px}.row p{grid-column:2}.aboutbox{grid-template-columns:1fr;padding:30px;gap:30px}.stats{gap:25px;justify-content:space-between}.details{flex-direction:column;gap:10px}footer{gap:20px;flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="bg"><div class="stars"></div><div class="grid"></div><div class="orb o1"></div><div class="orb o2"></div></div>
+
+<header class="nav">
+<a class="brand" href="#home" aria-label="WebTech home">
+<svg class="logo" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff6a00"/><stop offset=".52" stop-color="#ff8a1f"/><stop offset="1" stop-color="#ffb15c"/></linearGradient></defs><path d="M32 3 58 18v28L32 61 6 46V18Z" fill="none" stroke="url(#g)" stroke-width="2.2"/><path d="M17 23h30M17 32h22M17 41h30" stroke="url(#g)" stroke-width="4" stroke-linecap="round"/><circle cx="48" cy="32" r="4" fill="#ff6a00"/></svg>
+<span>WEB<span>TECH</span></span></a>
+<nav class="navlinks" id="navlinks"><button data-go="services">services</button><button data-go="work">work</button><button data-go="process">process</button><button data-go="about">about</button><button data-go="contact">contact</button></nav>
+<button class="cta" data-go="contact">START A PROJECT ↗</button><button class="menu" id="menu">☰</button>
+</header>
+
+<main>
+<section id="home" class="section hero">
+<div class="hero-copy">
+<div class="eyebrow"><span class="pulse"></span>WEBTECH / DIGITAL EXPERIENCES</div>
+<div class="hero-kicker">DESIGN × CODE × MOTION × 3D</div>
+<h1>WE BUILD<br><span class="outline">DIGITAL</span><br><span class="hero-orange">WORLDS.</span></h1>
+<p>High-impact websites, web applications and immersive digital experiences engineered to make your brand impossible to ignore.</p>
+<div class="actions"><button class="primary" data-go="contact">BUILD SOMETHING EPIC ↗</button><button class="ghost" data-go="work">ENTER THE SHOWCASE ↓</button></div>
+<div class="hero-metrics"><span><b>3D</b><small>IMMERSIVE</small></span><span><b>∞</b><small>CREATIVE</small></span><span><b>01</b><small>MISSION</small></span></div>
+</div>
+<div class="hero-orbit" aria-hidden="true">
+<div class="orbit o-a"></div><div class="orbit o-b"></div><div class="orbit o-c"></div>
+<div class="hero-core"><div class="core-face">WT</div></div>
+<div class="float-tag t1">WEB / 3D</div><div class="float-tag t2">MOTION</div><div class="float-tag t3">AI / CODE</div>
+</div>
+<div class="scroll">SCROLL TO EXPLORE <i></i></div>
+</section>
+
+<section id="services" class="section"><div class="sectionhead"><div class="eyebrow">01 / CAPABILITIES</div><h2>TECHNOLOGY THAT<br><span class="cyan">MOVES.</span></h2></div>
+<div class="gridcards">
+<article class="card"><span class="num">01</span><div class="icon">◉</div><h3>WEB DESIGN</h3><p>Immersive, conversion-focused interfaces with premium visual systems.</p><span class="arrow">↗</span></article>
+<article class="card"><span class="num">02</span><div class="icon">&lt;/&gt;</div><h3>DEVELOPMENT</h3><p>Fast, responsive and scalable websites and web applications.</p><span class="arrow">↗</span></article>
+<article class="card"><span class="num">03</span><div class="icon">✦</div><h3>AI & AUTOMATION</h3><p>Smart digital workflows that reduce friction and unlock possibilities.</p><span class="arrow">↗</span></article>
+<article class="card"><span class="num">04</span><div class="icon">◇</div><h3>E-COMMERCE</h3><p>High-performance storefronts engineered around your customers.</p><span class="arrow">↗</span></article>
+<article class="card"><span class="num">05</span><div class="icon">☁</div><h3>CLOUD & SYSTEMS</h3><p>Modern cloud-ready foundations for reliable digital products.</p><span class="arrow">↗</span></article>
+<article class="card"><span class="num">06</span><div class="icon">⬡</div><h3>SECURITY</h3><p>Thoughtful architecture and best practices from design to deployment.</p><span class="arrow">↗</span></article>
+</div></section>
+
+<section class="section network"><div><div class="eyebrow">02 / THE WEBTECH WORLD</div><h2>YOUR IDEAS.<br><span class="cyan">BROUGHT TO LIFE.</span></h2><p>We combine code, design, motion and emerging technology into digital experiences that feel alive.</p></div>
+<div class="visual"><svg class="lines" viewBox="0 0 700 500"><line x1="350" y1="250" x2="120" y2="90"/><line x1="350" y1="250" x2="580" y2="90"/><line x1="350" y1="250" x2="90" y2="365"/><line x1="350" y1="250" x2="610" y2="365"/><line x1="350" y1="250" x2="180" y2="470"/><line x1="350" y1="250" x2="520" y2="470"/></svg><div class="core">✦<br>WEBTECH</div><div class="node n1">AI</div><div class="node n2">WEB</div><div class="node n3">CLOUD</div><div class="node n4">DATA</div><div class="node n5">3D</div><div class="node n6">APP</div></div></section>
+
+<section id="work" class="section"><div class="sectionhead"><div class="eyebrow">03 / SELECTED WORK</div><h2>DIGITAL<br><span class="cyan">EXPERIENCES.</span></h2></div>
+<div class="projects">
+<article class="project"><div class="art"><div class="pgrid"></div><div class="porb"></div></div><div class="info"><small>PROJECT 01</small><h3>CROSSES & CLIPPERS</h3><p>Design / Development / Motion</p><strong>↗</strong></div></article>
+<article class="project"><div class="art two"><div class="pgrid"></div><div class="porb"></div></div><div class="info"><small>PROJECT 02</small><h3>AURA / SOCIAL MUSIC</h3><p>Design / Development / Product</p><strong>↗</strong></div></article>
+<article class="project"><div class="art three"><div class="pgrid"></div><div class="porb"></div></div><div class="info"><small>PROJECT 03</small><h3>WEBTECH EXPERIENCE</h3><p>Brand / 3D / Interactive</p><strong>↗</strong></div></article>
+</div></section>
+
+<section id="process" class="section process"><div class="sectionhead"><div class="eyebrow">04 / PROCESS</div><h2>FROM IDEA<br><span class="cyan">TO IMPACT.</span></h2></div><div class="rows">
+<div class="row"><b>01</b><h3>DISCOVER</h3><p>We understand your business, audience and goals.</p><strong>↗</strong></div>
+<div class="row"><b>02</b><h3>DESIGN</h3><p>We create the visual system and experience.</p><strong>↗</strong></div>
+<div class="row"><b>03</b><h3>BUILD</h3><p>We engineer the interface, interactions and technology.</p><strong>↗</strong></div>
+<div class="row"><b>04</b><h3>LAUNCH</h3><p>We test, optimise and take your product live.</p><strong>↗</strong></div>
+<div class="row"><b>05</b><h3>GROW</h3><p>We keep improving the experience as your business evolves.</p><strong>↗</strong></div>
+</div></section>
+
+<section id="about" class="section about"><div class="aboutbox"><div><div class="eyebrow">05 / ABOUT WEBTECH</div><h2>WE DON'T JUST BUILD WEBSITES.<br><span class="cyan">WE BUILD DIGITAL EXPERIENCES.</span></h2></div><p>WebTech is a technology-focused digital studio built around modern web design, development, motion and interactive experiences. The goal is simple: make the web more useful, more beautiful and far more memorable.</p><div class="stats"><div><strong>01</strong><span>DESIGN + CODE</span></div><div><strong>∞</strong><span>POSSIBILITIES</span></div><div><strong>24/7</strong><span>THE WEB</span></div></div></div></section>
+
+<section id="contact" class="section contact"><div><div class="eyebrow">06 / START A PROJECT</div><h2>READY TO BUILD<br><span class="outline">SOMETHING</span><br>AMAZING?</h2><p>Tell us what you're imagining. We'll turn the idea into a digital experience.</p><button class="primary" onclick="location.href='mailto:hello@webtech.co.za'">LET'S TALK ↗</button><div class="details"><span>HELLO@WEBTECH.CO.ZA</span><span>WEBSITE / APPS / DIGITAL</span></div></div></section>
+</main>
+
+<footer><a class="brand" href="#home"><svg class="logo" viewBox="0 0 64 64"><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff6a00"/><stop offset=".52" stop-color="#ff8a1f"/><stop offset="1" stop-color="#ffb15c"/></linearGradient></defs><path d="M32 3 58 18v28L32 61 6 46V18Z" fill="none" stroke="url(#g2)" stroke-width="2.2"/><path d="M17 23h30M17 32h22M17 41h30" stroke="url(#g2)" stroke-width="4" stroke-linecap="round"/><circle cx="48" cy="32" r="4" fill="#ff6a00"/></svg><span>WEB<span>TECH</span></span></a><span>© 2026 WEBTECH. DIGITAL TECHNOLOGY, REIMAGINED.</span><button class="top" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button></footer>
+
+<script>
+const links=document.querySelectorAll('[data-go]');
+links.forEach(b=>b.addEventListener('click',()=>{const el=document.getElementById(b.dataset.go);if(el)el.scrollIntoView({behavior:'smooth'});document.getElementById('navlinks').classList.remove('open')}));
+document.getElementById('menu').addEventListener('click',()=>document.getElementById('navlinks').classList.toggle('open'));
+
+let tx=0,ty=0,px=0,py=0;
+function pointer(x,y){tx=(x/innerWidth-.5);ty=(y/innerHeight-.5)}
+addEventListener('pointermove',e=>pointer(e.clientX,e.clientY),{passive:true});
+addEventListener('touchmove',e=>{if(e.touches[0])pointer(e.touches[0].clientX,e.touches[0].clientY)},{passive:true});
+function animate(){px+=(tx-px)*.035;py+=(ty-py)*.035;document.querySelector('.o1').style.transform=`translate(${px*45}px,${py*35}px)`;document.querySelector('.o2').style.transform=`translate(${-px*30}px,${-py*25}px)`;document.querySelector('.stars').style.transform=`translate(${px*12}px,${py*12}px)`;requestAnimationFrame(animate)}animate();
+
+document.querySelectorAll('.card').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`translateY(-8px) rotateX(${-y*4}deg) rotateY(${x*5}deg)`});card.addEventListener('pointerleave',()=>card.style.transform='')});
+</script>
+</body>
+</html>
